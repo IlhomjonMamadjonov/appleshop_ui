@@ -1,7 +1,7 @@
 import 'package:appleshop_ui/pages/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:shake/shake.dart';
-
+String mytext = "Martini?";
 class AppleShopUi extends StatefulWidget {
   static const String id = "/apple_shop";
 
@@ -10,7 +10,18 @@ class AppleShopUi extends StatefulWidget {
 }
 
 class _AppleShopUiState extends State<AppleShopUi> {
-  
+
+  @override
+  void initState() {
+    super.initState();
+    ShakeDetector detector = ShakeDetector.waitForStart(onPhoneShake: () {
+      Navigator.pushNamed(context, HomePage.id);
+      print("Shaked");
+    });
+
+    detector.startListening();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,7 +32,7 @@ class _AppleShopUiState extends State<AppleShopUi> {
           Container(
             alignment: Alignment.center,
             margin: EdgeInsets.symmetric(vertical: 12.5, horizontal: 5),
-            height: 30,
+            height: 25,
             width: 30,
             decoration: BoxDecoration(
                 color: Colors.orange.shade400,
@@ -41,6 +52,7 @@ class _AppleShopUiState extends State<AppleShopUi> {
       body: SingleChildScrollView(
         child: Column(
           children: [
+
             /// Header
             Container(
               height: 225,
