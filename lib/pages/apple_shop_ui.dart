@@ -11,6 +11,7 @@ class AppleShopUi extends StatefulWidget {
 
 class _AppleShopUiState extends State<AppleShopUi> {
 
+  //Shake function
   @override
   void initState() {
     super.initState();
